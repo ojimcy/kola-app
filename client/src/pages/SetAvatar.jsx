@@ -97,6 +97,7 @@ export default function SetAvatar() {
   );
 }
 
+
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -116,7 +117,6 @@ const Container = styled.div`
       color: white;
     }
   }
-
   .avatars {
     display: flex;
     gap: 2rem;
@@ -130,18 +130,15 @@ const Container = styled.div`
       align-items: center;
       transition: 0.5s ease-in-out;
       cursor: pointer;
-
       img {
         height: 6rem;
         transition: 0.5s ease-in-out;
       }
     }
-
     .selected {
       border: 0.4rem solid #4e0eff;
     }
   }
-
   button {
     background-color: #bacf8f;
     color: #fff;
@@ -153,9 +150,9 @@ const Container = styled.div`
     font-size: 1rem;
     text-transform: uppercase;
     transition: 0.5s ease-in-out;
-
     &:hover {
       background-color: #8eac50;
     }
   }
-}`;
+`;
+

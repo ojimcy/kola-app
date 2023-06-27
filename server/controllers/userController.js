@@ -32,7 +32,6 @@ const login = async (req, res, next) => {
   try {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
-    console.log(user);
     if (!user) {
       return res.json({ message: "Incorrect username", status: false });
     }
@@ -71,8 +70,23 @@ const setAvatar = async (req, res, next) => {
   }
 };
 
+const getUsers = async (req, res, next) => {
+  try {
+    const users = await User.find({ _id: { $ne: req.params.id } }).select([
+      "email",
+      "username",
+      "avatarImage",
+      "_id",
+    ]);
+    return res.json(users);
+  } catch (ex) {
+    next(ex);
+  }
+};
+
 module.exports = {
   register,
   login,
   setAvatar,
+  getUsers,
 };
