@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
+import { BiPowerOff } from "react-icons/bi";
+
 export default function Logout() {
   const navigate = useNavigate();
 
@@ -11,11 +13,11 @@ export default function Logout() {
   };
   return (
     <>
-    <Button>
-        <span onClick={handleClick}>Logout</span>
-    </Button>
+      <Button onClick={handleClick}>
+        <BiPowerOff />
+      </Button>
     </>
-  )
+  );
 }
 
 const Button = styled.button`
@@ -27,9 +29,8 @@ const Button = styled.button`
   background-color: #9a86f3;
   border: none;
   cursor: pointer;
-  span {
-    font-size: 1rem;
-    color: #ebe77f;
-    background-color: transparent;
+  svg {
+    font-size: 1.3rem;
+    color: #ebe7ff;
   }
 `;
