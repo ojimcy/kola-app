@@ -27,6 +27,7 @@ const register = async (req, res) => {
     next(ex);
   }
 };
+
 const login = async (req, res, next) => {
   try {
     const { username, password } = req.body;
@@ -48,8 +49,30 @@ const login = async (req, res, next) => {
   }
 };
 
+const setAvatar = async (req, res, next) => {
+  try {
+    const userId = req.params.id;
+    const avatarImage = req.body.image;
+    const userData = await User.findByIdAndUpdate(
+      userId,
+      {
+        isAvatarImageSet: true,
+        avatarImage,
+      },
+      { new: true }
+    );
+    console.log(userData);
+    return res.json({
+      isSet: userData.isAvatarImageSet,
+      image: userData.avatarImage,
+    });
+  } catch (ex) {
+    next(ex);
+  }
+};
 
 module.exports = {
   register,
   login,
+  setAvatar,
 };
