@@ -120,6 +120,7 @@ const Container = styled.div`
       .username {
         h3 {
           color: white;
+          text-transform: capitalize;
         }
       }
     }
@@ -143,6 +144,7 @@ const Container = styled.div`
     .username {
       h2 {
         color: white;
+        text-transform: capitalize;
       }
     }
     @media screen and (min-width: 720px) and (max-width: 1080px) {
